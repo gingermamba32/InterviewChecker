@@ -1,0 +1,115 @@
+{%INCLUDE:board_top%}
+
+    
+    <div class="container">
+    <p>&nbsp;</p> <p>&nbsp;</p> <p>&nbsp;</p>
+      <div class="page-header">
+        <h1>Добавить/редактировать файл медиа <div style="float: right;"><a href="/partner/media/" class="btn btn-default">&larr; все файлы медиа</a></div></h1>
+      </div>
+     
+      <div class="UploadOver"><form action="/partner/upload" method="post" enctype="multipart/form-data" target="if1"><input type="file" name="imageFile" onchange="this.form.submit();" /></form><iframe name="if1" id="if1"></iframe></div>
+ 
+     
+     
+        <form action="" method="post">
+          
+            
+            <div class="col-md-3">            
+                <div class="UploadItem" data-id="image">
+                    <label>Изображение</label>
+                    <input name="image" type="hidden" value=""  />
+                    <div class="img-thumb" data-id="image"><img src="/static/no.jpg" alt="" /></div>
+                </div>            
+            </div>
+            
+             <div class="col-md-3">            
+                <div class="UploadItem" data-id="file">
+                    <label>Медиафайл</label>
+                    <input name="file" type="hidden" value=""  />
+                    <div class="img-thumb img-thumb-mini" data-id="file"></div>    
+                    <audio style="width: 256px;" src="" data-id="file" controls></audio>               
+                </div>            
+            </div>
+            
+            <div class="col-md-6">
+          
+            <!--ERROR-->  
+            <div class="form-group">
+                <label for="E1">Название RU</label>
+                <input type="text" class="form-control" id="E1" name="name_ru" value="{NAME_RU}" required="1" placeholder="Иосиф Кобзон - День Победы"/>
+            </div>
+           
+            <div class="form-group">
+                <label for="E1">Название EN</label>
+                <input type="text" class="form-control" id="E1" name="name_en" value="{NAME_EN}" required="1" placeholder="Josef Coubzone - Victory day"/>
+            </div>
+            
+            <div class="col-md-6">
+            <div class="form-group">
+                <label for="E1">Категория</label>
+               <select class="form-control" name="category">
+                    {CATEGORY}
+               </select>
+            </div>
+            </div>
+            
+             <div class="col-md-6">
+            <div class="form-group">
+                <label for="E1">Тип записи</label>
+               <select class="form-control" name="type">
+                    <option value="0">Бесплатная</option>
+                    <option value="1">Платная</option>
+               </select>
+            </div>
+            </div>
+            
+            <button type="submit" class="btn btn-lg btn-success btn-block">Сохранить</button>
+        </div>
+        </form>
+    </div>
+    
+     <style type="text/css">
+    
+        .img-thumb { position: relative; border:1px solid #000; width:256px; height:256px; filter:grayscale(80%); -webkit-filter:grayscale(80%);   transition: filter 250ms; cursor: pointer; background:url('/static/no.jpg') no-repeat center center;  overflow: hidden; }
+        .img-thumb:hover { filter:grayscale(0%); -webkit-filter:grayscale(0%); }
+        .img-thumb img {  min-width:256px; min-height:256px; max-width:300px; }
+        
+        .img-thumb.img64 { width:64px; height:64px; background-size:cover; }
+        .img-thumb.img64 img {min-width:64px; min-height:64px; max-width:100px; max-height:100px; }
+        
+        .img-thumb.img32 { width:32px; height:32px; background-size:cover !important; }
+        .img-thumb.img32 img {min-width:32px; min-height:32px; max-width:100px; max-height:100px; }
+        
+        .img-thumb-mini { height:220px; }
+        
+        .UploadOver { width:16px; height:16px; overflow: hidden; position: absolute; top:100px; left:100px; opacity:0.1; cursor:  pointer; background: yellow;   }
+        .UploadOver input  { cursor:  pointer; background: yellow;}
+        
+    </style>
+    
+     <script type="text/javascript">
+        
+       
+        var destination = 'none';
+        
+       
+        
+        function uploadOver(file) {            
+            $('input[type="hidden"][name="'+destination+'"]').val(file);
+            $('.img-thumb[data-id="'+destination+'"]>img').attr('src', '/a/'+file);
+            if (file.indexOf('.mp3')) $('audio[data-id="'+destination+'"]').attr('src', '/a/'+file);
+           
+        }        
+        
+        $('.img-thumb').click(function(e){
+           e.preventDefault();
+           destination = $(this).attr('data-id');
+           $('.UploadOver input').click();           
+        });
+              
+        
+        
+        
+    </script>
+
+  {%INCLUDE:board_bot%}

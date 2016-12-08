@@ -1,0 +1,20 @@
+@import 'font-awesome.css';
+@import 'bootstrap.css';
+@import 'bootstrap-theme.css';
+@import 'nivo-lightbox.css';
+@import 'animate.css';
+@import '../img/themes/default/default.css';
+@import url("http://fonts.googleapis.com/css?family=Pacifico");
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,700&subset=latin,cyrillic");
+
+body {
+	font-size: 13px;
+	color: #222;
+	background-color: #fff;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+}
+
+
+.Main { width:328px; padding:0px 11px; position: fixed; top: 75px; left:50%; margin-left: -175px; text-align: center;  }
+.Logo { padding-bottom: 10px; }

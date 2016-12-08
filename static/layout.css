@@ -1,0 +1,16 @@
+body { font-family: 'Open Sans',Arial,Helvetica, sans-serif; font-size:14px;color:#212021; background: url('/images/sk3.jpg') no-repeat; background-size: cover; background-attachment: fixed; }
+
+.MainE { width:980px; margin:40px auto; }
+.MainE>.in { margin:0px 10px; }
+
+.Top {  }
+.Top>div { display: inline-block; *display: inline; zoom:1; vertical-align: middle }
+.Top>div.Img { width: 200px; }
+.Top>div.Text { width:760px; color:#fff; font-size: 36px; font-weight: 300; }
+
+.Data { background:#fff; margin-top: 40px; border-radius:10px; }
+.Data>.in  { margin:0px 32px; padding:32px 0px; }
+.Field { border-bottom:1px solid #eee; line-height:32px; }
+.Field:last-child { border-bottom:0px none }
+.Field>div {  display: inline-block; *display: inline; zoom:1; vertical-align: top }
+.Field>div.Name { font-weight: bold; padding-right:16px; }

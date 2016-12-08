@@ -1,0 +1,60 @@
+{%INCLUDE:board_top%}
+
+    
+    <!-- Begin page content -->
+    <div class="container">
+    <p>&nbsp;</p> <p>&nbsp;</p> <p>&nbsp;</p>
+      <div class="page-header">
+            <h1>Тесты <div style="float: right;"><a href="/partner/testAdd" class="btn btn-success">Новый тест</a></div></h1>
+      </div>
+      
+      <ul class="nav nav-tabs">
+            <li role="presentation pr_ru"><a href="/partner/board/">Русский</a></li>
+            <li role="presentation pr_en"><a href="/partner/board/en/">English</a></li>
+       </ul>
+      <p>&nbsp;</p>
+ 
+     <table class="table sort"><tbody>
+        <!--USR-->
+     </tbody></table>
+     
+    </div>
+    
+    <style type="text/css">
+    .pcc h1, .pcc h5 { margin:0px;padding:0px; }
+    .pcc { margin-top:20px; }
+    .pcc h5 { color:#8c8c8c; }
+    .pcc h1 { font-size:32px; }
+    .switch { width:16px; height:16px; border:2px solid #fff; background:#26AF61; cursor: pointer; transition: border 250ms; position: relative; top:2px;}
+     .switch:hover { border:3px solid #fff; }
+     .switch.off { background:#E94C3D; }
+    </style>
+    <script src="/js/tdnd.js"></script>
+   
+    <script type="text/javascript">
+    
+        $('.switch').click(function(e){
+            e.preventDefault();   
+            var set = 0;        
+            if ($(this).hasClass('off')) set = 1;
+            if (set == 1) $(this).removeClass('off');
+                else $(this).addClass('off'); 
+                
+            $.post('/partner/changeStatus/'+$(this).attr('data-id')+'/' + set, {}, function(data){},'html');
+        });
+        
+        
+        function userDND() {$.post('/partner/testsSave/',$('table.table').find('input').serializeArray(), function(data){  },'html'); }
+
+$(document).ready(function() {
+      $('table.sort').tableDnD({	  
+	    onDrop: function(table, row) {
+           $.post('/partner/testsSave/',table.find('input').serializeArray(), function(data){  },'html');
+           
+	    }
+	});
+});
+        
+    </script>
+
+  {%INCLUDE:board_bot%}

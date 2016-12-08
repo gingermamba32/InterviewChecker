@@ -1,0 +1,29 @@
+{
+    
+    "Database":
+        {
+            
+            "Host" : "localhost",
+            "Username" : "api",
+            "Password" : "CMI3I4LSLLLl",
+            "Name" : "api",
+            "Prefix" : "WL_"
+            
+        },
+    "System":
+        {
+
+            "Debug" : "No",
+            "CacheLifeTime" : "1800"
+
+        },
+        
+    "Classes":
+        {
+            
+            "Smarter" : "On"
+            
+            
+        }
+    
+}

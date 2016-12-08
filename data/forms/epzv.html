@@ -1,0 +1,70 @@
+<div class="typTitle">ЗАЯВКА-ПРЕДЛОЖЕНИЕ СУБПОДРЯДА</div>
+
+<form action="" method="post" class="uniForm">
+    <input type="hidden" name="type" value="epzv"/>
+    <div class="aInform">Поля, отмеченые <span class="A">*</span>, обязательны для заполнения</div>
+    <div class="E W100">
+    	   	<div class="Field">
+				<div class="Name">Наименование Компании <span class="A">*</span></div>
+				<div class="inputText"><i><b><input type="text" name="name"/></b></i></div>
+			</div>
+    </div>
+    <div class="E W100">
+    	   	<div class="Field">
+				<div class="Name">Регион деятельности</div>
+				<div class="inputText"><i><b><select name="region">{REGIONS}</select></b></i></div>
+			</div>
+    </div>
+    <div class="E W100">
+    <div class="Field">
+				<div class="Name">Наименование объекта <span class="A">*</span></div>
+				<div class="textarea"><i><b><textarea cols="30" rows="10" name="object" style="height:85px"></textarea></b></i></div>
+			</div></div>
+    
+   
+    <div class="E W50">
+    	   	<div class="Field">
+				<div class="Name">Общая площадь объекта, м2 <span class="A">*</span></div>
+				<div class="inputText"><i><b><input type="text" name="area" class="integer"/></b></i></div>
+			</div>
+    </div><div class="E W50">
+    	   	<div class="Field">
+				<div class="Name">Дата окончания работ (ДД/ММ/ГГГГ):</div>
+                
+                <table width="100%">
+                    <tr>
+                        <td width="30%"><div class="inputText"><i><b><select name="end-day">{DAYS}</select></b></i></div></td>
+                        <td width="5%"></td>
+                        <td width="30%"><div class="inputText"><i><b><select name="end-month">{MONTH}</select></b></i></div></td>
+                        <td width="5%"></td>
+                        <td width="30%"><div class="inputText"><i><b><select name="end-year">{YEAR1}</select></b></i></div></td>                        
+                        
+                    </tr>
+                </table>
+                
+				
+			</div>
+    </div>
+    
+     <div class="E W50">
+    	   	<div class="Field">
+				<div class="Name">E-Mail <span class="A">*</span></div>
+				<div class="inputText"><i><b><input type="text" name="email" class="integer cnt"/></b></i></div>
+			</div>
+    </div><div class="E W50">
+    	   	<div class="Field">
+				<div class="Name">Телефон</div>
+				<div class="inputText"><i><b><input type="text" name="phone" /></b></i></div>
+			</div>
+    </div>
+   
+    <div class="E W100">
+    <div class="Field">
+				<div class="Name">Напишите другие моменты, которые Вы бы хотели отметить:</div>
+				<div class="textarea"><i><b><textarea cols="30" rows="10" name="text" style="height:85px"></textarea></b></i></div>
+			</div></div>
+            
+   <p>&nbsp;</p>     
+   <div class="Buttons"><div class="e uSubmit"><div class="oBut"><i><b>Отправить анкету!</b></i></div></div></div>   
+</form>
+<div class="formResult">Спасибо большое за намерение сотрудничать с нами. В самое ближайшее время мы с Вам свяжемся!</div>

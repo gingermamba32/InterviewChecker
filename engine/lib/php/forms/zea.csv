@@ -1,0 +1,4 @@
+name,string,5
+object,string,5
+area,int,1
+email,email,5

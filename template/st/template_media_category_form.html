@@ -1,0 +1,84 @@
+{%INCLUDE:board_top%}
+
+    
+    <div class="container">
+    <p>&nbsp;</p> <p>&nbsp;</p> <p>&nbsp;</p>
+      <div class="page-header">
+        <h1>Добавить/редактировать категорию медиа <div style="float: right;"><a href="/partner/media/category" class="btn btn-default">&larr; все категории медиа</a></div></h1>
+      </div>
+     
+      <div class="UploadOver"><form action="/partner/upload" method="post" enctype="multipart/form-data" target="if1"><input type="file" name="imageFile" onchange="this.form.submit();" /></form><iframe name="if1" id="if1"></iframe></div>
+ 
+     
+     
+        <form action="" method="post">
+          
+            
+            <div class="col-md-4">            
+                <div class="UploadItem" data-id="image">
+                    <label>Иконка</label>
+                    <input name="image" type="hidden" value=""  />
+                    <div class="img-thumb" data-id="image"><img src="/static/no.jpg" alt="" /></div>
+                </div>            
+            </div>
+            
+            <div class="col-md-8">
+          
+            <!--ERROR-->  
+            <div class="form-group">
+                <label for="E1">Название категории RU</label>
+                <input type="text" class="form-control" id="E1" name="name_ru" value="{NAME_RU}" required="1" placeholder="Например, Для бухгалтеров"/>
+            </div>
+           
+            <div class="form-group">
+                <label for="E1">Название категории EN</label>
+                <input type="text" class="form-control" id="E1" name="name_en" value="{NAME_EN}" required="1" placeholder="Например, For workers"/>
+            </div>
+            
+            <button type="submit" class="btn btn-lg btn-success">Сохранить</button>
+        </div>
+        </form>
+    </div>
+    
+     <style type="text/css">
+    
+        .img-thumb { position: relative; border:1px solid #000; width:256px; height:256px; filter:grayscale(80%); -webkit-filter:grayscale(80%);   transition: filter 250ms; cursor: pointer; background:url('/static/no.jpg') no-repeat center center;  overflow: hidden; }
+        .img-thumb:hover { filter:grayscale(0%); -webkit-filter:grayscale(0%); }
+        .img-thumb img {  min-width:256px; min-height:256px; max-width:300px; }
+        
+        .img-thumb.img64 { width:64px; height:64px; background-size:cover; }
+        .img-thumb.img64 img {min-width:64px; min-height:64px; max-width:100px; max-height:100px; }
+        
+        .img-thumb.img32 { width:32px; height:32px; background-size:cover !important; }
+        .img-thumb.img32 img {min-width:32px; min-height:32px; max-width:100px; max-height:100px; }
+        
+        .UploadOver { width:16px; height:16px; overflow: hidden; position: absolute; top:100px; left:100px; opacity:0.1; cursor:  pointer; background: yellow;   }
+        .UploadOver input  { cursor:  pointer; background: yellow;}
+        
+    </style>
+    
+     <script type="text/javascript">
+        
+       
+        var destination = 'none';
+        
+       
+        
+        function uploadOver(file) {            
+            $('input[type="hidden"][name="'+destination+'"]').val(file);
+            $('.img-thumb[data-id="'+destination+'"]>img').attr('src', '/a/'+file);
+           
+        }        
+        
+        $('.img-thumb').click(function(e){
+           e.preventDefault();
+           destination = $(this).attr('data-id');
+           $('.UploadOver input').click();           
+        });
+              
+        
+        
+        
+    </script>
+
+  {%INCLUDE:board_bot%}

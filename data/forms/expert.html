@@ -1,0 +1,71 @@
+<div class="typTitle">Анкета эксперта</div>
+<form action="" method="post" class="uniForm">
+    <input type="hidden" name="type" value="expert"/>
+    <div class="aInform">Поля, отмеченые <span class="A">*</span>, обязательны для заполнения</div>
+    <div class="E W85">
+    	   	<div class="Field">
+				<div class="Name">Фамилия, Имя, Отчество <span class="A">*</span></div>
+				<div class="inputText"><i><b><input type="text" name="name"/></b></i></div>
+			</div>
+    </div><div class="E W15">
+    	   	<div class="Field">
+				<div class="Name">Возраст, л. <span class="A">*</span></div>
+				<div class="inputText"><i><b><input type="text" name="old" class="integer cnt"/></b></i></div>
+			</div>
+    </div>
+    <div class="E W100">
+    	   	<div class="Field">
+				<div class="Name">Область, республика, край и т.п., проживания (например, Московская область)</div>
+				<div class="inputText"><i><b><select name="region">{REGIONS}</select></b></i></div>
+			</div>
+    </div>
+    <div class="E W100">
+    	   	<div class="Field">
+				<div class="Name">С какого времени (месяц, год) Вы занимаетесь энергообследованием и составлением энергопаспортов?</div>
+			     <table width="200">
+                    <tr>
+                        <td width="45%"><div class="inputText"><i><b><select name="stage-month">{MONTH}</select></b></i></div></td>
+                        <td width="10%"><center>/</center></td>
+                        <td width="45%"><div class="inputText"><i><b><select name="stage-year">{YEAR}</select></b></i></div></td>
+                    </tr>
+                 </table>
+			</div>
+    </div>
+    <div class="E W50">
+    	   	<div class="Field">
+				<div class="Name">Какое количество энергопаспортов составлено лично Вами? <span class="A">*</span></div>
+				<div class="inputText"><i><b><input type="text" name="count" class="integer cnt"/></b></i></div>
+			</div>
+    </div><div class="E W50">
+    	   	<div class="Field">
+				<div class="Name">Какое количество энергопаспортов из них согласовано в СРО? <span class="A">*</span></div>
+				<div class="inputText"><i><b><input type="text" name="count-ok" class="integer cnt"/></b></i></div>
+			</div>
+    </div>
+    <div class="E W100">
+    	   	<div class="Field">
+				<div class="Name">В какое время дня и недели Вы планируете выполнять работу для нас?</div>
+				<div class="inputText"><i><b><input name="workday" type="text" value=""/></b></i></div>
+			</div>
+    </div>
+     <div class="E W50">
+    	   	<div class="Field">
+				<div class="Name">E-Mail <span class="A">*</span></div>
+				<div class="inputText"><i><b><input type="text" name="email" class="integer cnt"/></b></i></div>
+			</div>
+    </div><div class="E W50">
+    	   	<div class="Field">
+				<div class="Name">ICQ</div>
+				<div class="inputText"><i><b><input type="text" name="icq" /></b></i></div>
+			</div>
+    </div>
+    <div class="E W100">
+    <div class="Field">
+				<div class="Name">Напишите другие моменты, которые Вы бы хотели отметить:</div>
+				<div class="textarea"><i><b><textarea cols="30" rows="10" name="text" style="height:85px"></textarea></b></i></div>
+			</div></div>
+            
+   <p>&nbsp;</p>     
+   <div class="Buttons"><div class="e uSubmit"><div class="oBut"><i><b>Отправить анкету!</b></i></div></div></div>   
+</form>
+<div class="formResult">Спасибо большое за намерение сотрудничать с нами. В самое ближайшее время мы с Вам свяжемся!</div>

@@ -1,0 +1,73 @@
+<div class="typTitle">ОЦЕНКА ПРИМЕРНОЙ СТОИМОСТИ РАБОТ</div>
+
+<form action="" method="post" class="notSend">
+    <input type="hidden" name="type" value="psr"/>
+    
+    <div class="E W50">
+    	   	<div class="Field">
+				<div class="Name">Выберите вид работ</div>
+				<div class="inputText"><i><b><table width="100%"><tr><td width="30"><input type="radio" name="type" id="type0" checked="" value="0"/></td><td><label for="type0">Выполнить энергоаудит</label></td></tr></table></b></i></div>
+			</div>
+    </div><div class="E W50">
+    	   	<div class="Field">
+				<div class="Name">&nbsp;</div>
+				<div class="inputText"><i><b><table width="100%"><tr><td width="30"><input type="radio" name="type" id="type1" value="1"/></td><td><label for="type1">Энергопаспорт на субподряд</label></td></tr></table></b></i></div>
+			</div>
+    </div>
+    <p>(Если Вы хотите узнать стоимость комплексного энергоаудита, то выберите «Выполнить энергоаудит». Если Вы хотите узнать стоимость выполнения эгнергопаспорта на субподряде, выберите «Энергопаспорт на субподряд»).</p>
+    <!--<div class="E W100">
+    	   	<div class="Field">
+				<div class="Name">Область, республика, край и т.п</div>
+				<div class="inputText"><i><b><select name="region">{REGIONS}</select></b></i></div>
+			</div>
+    </div>-->
+      
+   
+    <div class="E W50">
+    	   	<div class="Field">
+				<div class="Name">Общая площадь объекта, м2: </div>
+				<div class="inputText"><i><b><input type="text" name="area" id="areaCount" class="integer" value="50"/></b></i></div>
+			</div>
+    </div><div class="E W50">
+    	   	<div class="Field">
+				<div class="Name" style="text-align: right;">Стоимость работ составляет</div>                
+               	<div class="typTitle" id="calcResult" style="line-height: 32px; text-align: right;">0 руб.</div>
+                
+				
+			</div>
+    </div>
+     
+</form>
+<script type="text/javascript">
+
+var aParam = {A};
+var bParam = {B};
+var kParam = {K};
+
+function calcThis()
+    {
+        
+        var n = 0;
+        
+        
+        if ($('#type0').is(':checked')) n = aParam * Math.pow(parseFloat($('#areaCount').val()), bParam);
+            else  n = kParam * aParam * Math.pow(parseFloat($('#areaCount').val()), bParam);
+            
+        $('#calcResult').html('<b>'+Math.ceil(n)+'</b> руб.');
+        if  ($('#calcResult b').text() == 'NaN') $('#calcResult b').text('0');
+       
+        
+    }
+
+$(function(){
+    
+    calcThis();
+   
+    $('#areaCount').change(function(){ calcThis(); });
+    $('#areaCount').keyup(function(){ calcThis();  });
+    $('#type0, #type1').click(function(){ calcThis();  });
+    
+    
+});
+
+</script>

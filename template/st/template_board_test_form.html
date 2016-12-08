@@ -1,0 +1,263 @@
+{%INCLUDE:board_top%}
+
+    
+    <div class="container UploadContianer">
+        <div class="UploadOver"><form action="/partner/upload" method="post" enctype="multipart/form-data" target="if1"><input type="file" name="imageFile" onchange="this.form.submit();" /></form><iframe name="if1" id="if1"></iframe></div>
+    <p>&nbsp;</p> <p>&nbsp;</p>
+      <div class="page-header">
+        <h1>Добавить тест <div style="float: right;"><a href="/partner/" class="btn btn-default">&larr; все тесты</a></div></h1>
+      </div>
+     
+        <form action="" method="post">
+          
+            <div class="col-md-3">
+            
+                <div class="UploadItem" data-id="icon">
+                    <label>Иконка</label>
+                    <input name="icon" type="hidden" value=""  />
+                    <div class="img-thumb" data-id="icon"><img src="/static/no.jpg" alt="" /></div>
+                </div>
+            
+            </div>
+            
+             <div class="col-md-3">
+            
+                <div class="UploadItem" data-id="image">
+                    <label>Основное изображение</label>
+                    <input name="image" type="hidden" value=""  />
+                    <div class="img-thumb" data-id="image"><img src="/static/no.jpg" alt=""  /></div>
+                </div>
+            
+            </div>
+           
+           <div class="col-md-2">
+                <div class="form-group">
+                <label for="E3">Язык</label>
+                <select class="form-control" id="E3" name="lang">
+                    <option value="ru">Русский</option>
+                    <option value="en">English</option>
+                </select>                
+            </div></div>
+            
+            <div class="col-md-2">
+                <div class="form-group">
+                <label for="E4">Категория</label>
+                 <select class="form-control" id="E4" name="category">{CATEGORY}</select>     
+            </div></div>
+            
+            <div class="col-md-2"><div class="form-group">
+                <label for="EI">ID</label>
+                <input type="title" class="form-control" id="EI" name="iid" value="{IID}" required="1" placeholder=""/>
+            </div></div> 
+            
+            <div class="col-md-4"><div class="form-group">
+                <label for="E1">Название</label>
+                <input type="title" class="form-control" id="E1" name="name" value="{NAME}" required="1" placeholder="Например, Кто Вы на кухне?"/>
+            </div></div>  
+            
+             <div class="col-md-2"><div class="form-group">
+                 <label for="ET">Тип записи</label>
+               <select class="form-control" name="type" id="ET">
+                    <option value="0" id="type0">Бесплатная</option>
+                    <option value="1" id="type1">Платная</option>
+               </select>
+            </div></div> 
+            
+            <div class="col-md-6"><div class="form-group">
+                <label for="E2">Описание</label>
+                <textarea class="form-control" id="E2" name="description" required="1" rows="4" placeholder="О чем тест?">{DESCRIPTION}</textarea>
+            </div></div>
+            <p>&nbsp;</p>
+            
+           
+            
+            <h1>Вопросы <a href="#" class="btn btn-success btn-add-question">Добавить вопрос</a></h1>
+            <hr />
+            <div class="Questions"></div>
+            
+            <h1>Результаты <a href="#" class="btn btn-success btn-add-result">Добавить результат</a></h1>
+            <hr />
+            <div class="Results">
+                
+            </div>
+                        
+            
+            
+            <div class="col-md-12"><p>&nbsp;</p><button type="submit" class="btn btn-success btn-lg">Сохранить</button></div>
+  
+            
+        
+        </form>
+        <div class="Hidden ATPL" style="display: none;">
+           
+                <div class="rowline nodata">
+                    <div class="col-md-1"><input name="image1" type="hidden" value=""  /><div class="img-thumb img32" data-id="image1"><img src="/static/no.png" alt=""  /></div></div>
+                    <div class="col-md-9"><input type="text" class="form-control" name="text" value="" placeholder="Например, Может на кухне?"/></div>
+                    <div class="col-md-2"><input type="number"  min="-255" max="255"  class="form-control" name="result" value="0" /></div>
+                </div>
+           
+           </div>
+           
+            
+            <div class="Hidden QTPL" style="display: none;">
+            
+                <div class="row nodata">                     
+                     <div class="col-md-4"><label>Вопрос <a href="javascript:void();" onclick="removeRow(this);" class="btn btn-danger btn-xs">Удалить</a></label><br />                    
+                     <textarea class="form-control" name="a1" required="1" rows="2" placeholder="Например, Где Василий?"></textarea>
+                     </div>
+                     <div class="col-md-8 col-ans"><label>Ответы</label></div>
+                     <hr class="col-md-12" />
+                </div>
+                
+            </div>
+            
+            <div class="Hidden RTPL" style="display: none;">
+            
+                <div class="row nodata">
+                    <div class="col-md-1">
+                        <input name="image2" type="hidden" value=""  /><div class="img-thumb img64" data-id="image2"><img src="/static/no.png" alt=""  /></div>
+                    </div>
+                    <div class="col-md-9"><label>Текст <a href="javascript:void();" onclick="removeRow(this);" class="btn btn-danger btn-xs">Удалить</a></label><textarea class="form-control" name="a2" required="1" rows="2" placeholder="Ура, Вы победили!"></textarea></div>
+                    <div class="col-md-2"><label>Баллов до</label><input type="number"  min="-255" max="255"  class="form-control" name="result" value="0" /></div>
+                    <hr class="col-md-12" />
+                </div>
+            
+            </div>
+    </div>
+    
+    
+    <style type="text/css">
+    
+        .img-thumb { position: relative; border:1px solid #000; width:256px; height:256px; filter:grayscale(80%); -webkit-filter:grayscale(80%);   transition: filter 250ms; cursor: pointer; background:url('/static/no.jpg') no-repeat center center;  overflow: hidden; }
+        .img-thumb:hover { filter:grayscale(0%); -webkit-filter:grayscale(0%); }
+        .img-thumb img {  min-width:256px; min-height:256px; max-width:300px; }
+        
+        .img-thumb.img64 { width:64px; height:64px; background-size:cover; }
+        .img-thumb.img64 img {min-width:64px; min-height:64px; max-width:100px; max-height:100px; }
+        
+        .img-thumb.img32 { width:32px; height:32px; background-size:cover !important; }
+        .img-thumb.img32 img {min-width:32px; min-height:32px; max-width:100px; max-height:100px; }
+        
+        .UploadOver { width:16px; height:16px; overflow: hidden; position: absolute; top:100px; left:100px; opacity:0.1; cursor:  pointer; background: yellow;   }
+        .UploadOver input  { cursor:  pointer; background: yellow;}
+        
+    </style>
+    
+    <script type="text/javascript">
+        
+        var COUNT = 0;
+        var R = 0;
+        var destination = 'none';
+        
+        var SRC_Q = 0;
+        var SRC_R = 0;
+        
+        
+        function removeRow(el) {
+            
+            $(el).parents('.row').remove();
+            
+        }
+        
+        function uploadOver(file) {            
+            $('input[type="hidden"][name="'+destination+'"]').val(file);
+            $('.img-thumb[data-id="'+destination+'"]>img').attr('src', '/a/'+file);
+           
+        }        
+        
+        $('.img-thumb').click(function(e){
+           e.preventDefault();
+           destination = $(this).attr('data-id');
+           $('.UploadOver input').click();           
+        });
+        
+        $('.btn-add-question').click(function(e){
+           e.preventDefault(); 
+           var tpl = $('.QTPL').html(); 
+           var atpl = $('.ATPL').html();
+           
+           $('.Questions').append(tpl);           
+           $('.Questions .row.nodata textarea').attr('name', "questions[" + COUNT + "][question]");
+           
+           for (var i = 0; i<5; i++) {
+            
+           
+            $('.Questions .row.nodata .col-ans').append(atpl);
+            $('.Questions .rowline.nodata input[name="image1"]').attr('name','questions['+COUNT+'][answers]['+i+'][image]');
+            $('.Questions .rowline.nodata div.img-thumb').attr('data-id','questions['+COUNT+'][answers]['+i+'][image]');
+            $('.Questions .rowline.nodata input[name="text"]').attr('name','questions['+COUNT+'][answers]['+i+'][text]');
+            $('.Questions .rowline.nodata input[name="result"]').attr('name','questions['+COUNT+'][answers]['+i+'][result]');
+            $('.Questions .rowline.nodata').removeClass('nodata');
+            
+           }
+           
+           $('.img32').unbind('click').click(function(e){e.preventDefault();
+           destination = $(this).attr('data-id');
+           $('.UploadOver input').click();  });
+           
+           $('.Questions .row.nodata').removeClass('nodata');
+           
+           COUNT++;     
+                         
+        });
+        
+        
+         $('.btn-add-result').click(function(e){
+           e.preventDefault(); 
+           var tpl = $('.RTPL').html();            
+           $('.Results').append(tpl);           
+           
+           
+           $('.Results .row.nodata textarea').attr('name', "results[" + R + "][text]");
+           $('.Results .row.nodata input[type="number"]').attr('name', "results[" + R + "][result]");
+           $('.Results .row.nodata input[name="image2"]').attr('name','results['+R+'][image]');
+           $('.Results .row.nodata div.img-thumb').attr('data-id','results['+R+'][image]');
+           
+           $('.img64').unbind('click').click(function(e){e.preventDefault();
+           destination = $(this).attr('data-id');
+           $('.UploadOver input').click();  });           
+           $('.Results .row.nodata').removeClass('nodata');
+           
+           R++;     
+                         
+        });
+        
+        if (SRC_Q) {
+            
+            for (var i = 0; i<SRC_Q.length; i++) {
+                
+                $('.btn-add-question').click();  
+                $('textarea[name="questions['+i+'][question]"]').val(SRC_Q[i]['question']);
+                
+                for (var j = 0; j<SRC_Q[i]['answers'].length; j++) {
+                    
+                    $('input[name="questions['+i+'][answers]['+j+'][result]"]').val(SRC_Q[i]['answers'][j]['result']);
+                    $('input[name="questions['+i+'][answers]['+j+'][text]"]').val(SRC_Q[i]['answers'][j]['text']);
+                    $('input[name="questions['+i+'][answers]['+j+'][image]"]').val(SRC_Q[i]['answers'][j]['image']);
+                    $('div[data-id="questions['+i+'][answers]['+j+'][image]"] img').attr('src','/a/' + SRC_Q[i]['answers'][j]['image']);
+                    
+                }             
+                
+            }
+            
+        }
+        
+        
+        
+        if (SRC_R) {
+            
+            for (var i = 0; i<SRC_R.length; i++) {
+                
+                $('.btn-add-result').click();  
+                $('textarea[name="results['+i+'][text]"]').val(SRC_R[i]['text']);
+                $('input[name="results['+i+'][result]"]').val(SRC_R[i]['result']);   
+                $('input[name="results['+i+'][image]"]').val(SRC_R[i]['image']);   
+                $('div[data-id="results['+i+'][image]"] img').attr('src', '/a/' + SRC_R[i]['image']);         
+                
+            }
+            
+        }
+    
+    </script>
+
+  {%INCLUDE:board_bot%}

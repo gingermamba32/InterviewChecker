@@ -1,0 +1,5 @@
+name,string,5
+old,int,18
+count,int,0
+count-ok,int,0
+email,email,5
